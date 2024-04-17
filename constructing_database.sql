@@ -1,0 +1,2 @@
+CREATE DATABASE sdi_db;
+
