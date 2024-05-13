@@ -1,6 +1,6 @@
 -- Get 1
 create or replace function get_task_record(
-    in t_id UUID
+    in t_id uuid
 ) returns task
 language sql
 as $$
@@ -19,12 +19,13 @@ create or replace procedure add_task_record(
     in t_name varchar(255),
     in t_description text,
     in t_priority smallint,
-    in t_dueDate timestamp
+    in t_dueDate timestamp,
+	in t_user uuid
 )
 language sql
 as $$
-insert into task (id, name, description, priority, due_Date)
-values (t_id, t_name, t_description, t_priority, t_dueDate);
+insert into task (id, name, description, priority, due_Date, "user")
+values (t_id, t_name, t_description, t_priority, t_dueDate, t_user)
 $$;
 -- Delete 1
 create or replace procedure delete_task_record(in t_id uuid)
@@ -38,13 +39,15 @@ create or replace procedure update_tasks_record (
 	in t_name varchar(255),
 	in t_description text, 
 	in t_priority smallint,
-	in t_dueDate timestamp)
+	in t_dueDate timestamp,
+	in t_user uuid)
 language sql
 as $$
 UPDATE task
 SET name = t_name,
     description = t_description,
     priority = t_priority,
-    due_Date = t_dueDate
+    due_Date = t_dueDate,
+	"user" = t_user
 WHERE id = t_id;
 $$

@@ -32,9 +32,9 @@ delete from subtask where id = s_id;
 $$;
 -- Update 1
 create or replace procedure update_subtask_record (
-    in s_id UUID, 
-    in s_subject VARCHAR(255),
-    in s_task UUID
+    in s_id uuid, 
+    in s_subject varchar(255),
+    in s_task uuid
 )
 language sql
 as $$
