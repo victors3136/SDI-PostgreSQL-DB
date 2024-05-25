@@ -35,7 +35,7 @@ from sdi_role inner join sdi_role_permission on r_id = rp_role
 select * from role_permission;
 --------------------------------------------------------------------------------------------
 select role_name,
-		string_agg(permission_name, ' ') AS permissions
+		string_agg(permission_name, ' ') as permissions
 from role_permission
 group by role_name
 order by count(permission_name) desc;
