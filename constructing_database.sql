@@ -1,2 +1,2 @@
-CREATE DATABASE sdi_db;
+create database sdi_db;
 
